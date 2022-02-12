@@ -1,0 +1,16 @@
+#adapted from example in docker documentation
+version: '3'
+
+services:
+  actix:
+    build: ./actix-docker/
+    environment:
+       - USER=bryan
+    volumes:
+      - .:/code
+    working_dir: /code/hello-world
+    ports:
+      - 8080:8080
+    command: cargo watch -x 'run --bin hello-world'
+
+
