@@ -2,15 +2,28 @@
 version: '3'
 
 services:
-  actix:
-    build: ./actix-docker/
+  # actix:
+  #   build: ./actix-docker/
+  #   environment:
+  #      - USER=bryan
+  #   volumes:
+  #     - .:/code
+  #   working_dir: /code/hello-world
+  #   ports:
+  #     - 8080:8080
+  #   command: cargo watch -x 'run --bin hello-world'
+
+  gin:
+    build: ./go-gin-docker/
     environment:
        - USER=bryan
     volumes:
       - .:/code
-    working_dir: /code/hello-world
+    working_dir: /code/gin-hello
     ports:
       - 8080:8080
-    command: cargo watch -x 'run --bin hello-world'
+    command: go run example.go
+
+
 
 
